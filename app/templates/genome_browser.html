@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Search Genome{% endblock %}
+{% block content %}
+
+<!-- Search Feature -->
+<div class="search-feature">
+    <form method="post" action="{{ url_for('search_genome') }}">
+        <label for="search_term">Search:</label>
+        <input type="text" id="search_term" name="search_term" placeholder="Enter genome name or ID">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+<!-- Display Search Results -->
+<div class="search-results">
+    {% if search_results %}
+    <h3>Search Results:</h3>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th>Attribute</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Gene Symbol:</strong></td>
+                    <td>{{ search_results.display_name }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Gene ID:</strong></td>
+                    <td>{{ search_results.id }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Species:</strong></td>
+                    <td>{{ search_results.species }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Biotype:</strong></td>
+                    <td>{{ search_results.biotype }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Description:</strong></td>
+                    <td>{{ search_results.description.split('[')[0] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p>No search results found.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
+```

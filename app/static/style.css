@@ -1,0 +1,356 @@
+/* Reset some default styles for consistency */
+/* Reset styles for certain elements */
+/* Navbar styles */
+.navbar {
+    background-color: transparent; /* Set the background to transparent */
+}
+
+.navbar-logo {
+    color: #5971fc;
+}
+
+.navbar-links {
+    justify-content: space-evenly;
+}
+
+.navbar-links li {
+    display: inline;
+}
+
+.navbar-links li a {
+    color: #5971fc;
+}
+
+/* Home Page styles */
+.home-page {
+    background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 90vh; /* Make sure the home-page div covers the full viewport height */
+}
+
+.title-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: auto; /* Push the title text to the bottom of the container */
+    text-align: center; /* Center the title text horizontally */
+}
+
+.title-text span {
+    display: block; /* Split the title text into two lines */
+}
+
+.start-button {
+    margin-top: 1rem;
+}
+
+.start-button button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px 8px;
+}
+
+.start-button button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Genome Browser styles */
+.genome-browser {
+    padding: 2rem;
+}
+
+.search-feature {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.search-feature label {
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.search-feature input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.search-feature button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.search-feature button:hover {
+    background-color: #0056b3;
+}
+
+.search-results {
+    margin-top: 2rem;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f5f5f5;
+}
+
+.table thead th {
+    border-bottom: none;
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+}
+
+.table td, .table th {
+    border: 1px solid #dee2e6;
+    padding: 0.75rem;
+    vertical-align: top;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Adjust this media query breakpoint as needed */
+@media (max-width: 768px) {
+    .search-feature {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-feature label {
+        margin-bottom: 0.5rem;
+    }
+
+    .search-feature input {
+        width: 100%;
+    }
+
+    .search-feature button {
+        margin-top: 1rem;
+    }
+}
+
+/* Annotation Page styles */
+.annotation-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.annotation-space {
+    margin-top: 2rem;
+    padding: 5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%; /* Adjust the width as needed */
+    height: 72vh; /* Adjust the height as needed */
+}
+
+.annotation-space h2 {
+    font-size: 1.5rem;
+}
+
+.upload-download-options {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-download-options h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.options-container {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.upload input[type="file"] {
+    display: none;
+}
+
+.upload button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload button:hover {
+    background-color: #0056b3;
+}
+
+.download button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 6px;
+}
+
+.download button:hover {
+    background-color: #0056b3;
+}
+
+/* Analysis Page styles */
+.analysis-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.analysis-space {
+    margin-top: 2rem;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%; /* Adjust the width as needed */
+    height: 65vh; /* Adjust the height as needed */
+}
+
+.analysis-space h2 {
+    font-size: 1.5rem;
+}
+
+.analysis-options {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.analysis-options h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.options-container {
+    margin-top: 0.5px;
+}
+
+.start-analysis {
+    margin-top: 0.5px;
+}
+
+/* Bootstrap Classes */
+.form-check {
+    margin: 1rem 0;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+}
+
+/* Support Page styles */
+.support-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.contact-us {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.support-form {
+    margin-top: 2rem;
+    width: 70%; /* Adjust the width as needed */
+}
+
+/* Bootstrap Classes */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    color: #555;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Adjust the height as needed */
+}
+
+.login-form {
+    max-width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+    text-align: center;
+}
+
+.login-input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+/* Signup Page styles */
+.signup-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.signup-form {
+    margin-top: 2rem;
+    width: 70%; /* Adjust the width as needed */
+}

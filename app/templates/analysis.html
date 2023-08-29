@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Analysis Page Content -->
+<div class="analysis-page">
+    <!-- Analysis Space -->
+    <div class="analysis-space">
+        <h2>Analysis Space</h2>
+        <p>Analysis results will be located here.</p>
+        <!-- Add more content here as needed -->
+    </div>
+
+    <!-- Analysis Options -->
+    <div class="analysis-options">
+        <h3>Analysis Options</h3>
+        <div class="options-container">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="option1">
+                <label class="form-check-label" for="option1">
+                    Option 1
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="option2">
+                <label class="form-check-label" for="option2">
+                    Option 2
+                </label>
+            </div>
+            <!-- Add more analysis options here -->
+        </div>
+    </div>
+
+    <!-- Start Analysis Button -->
+    <div class="start-analysis">
+        <button class="btn btn-primary">Start Analysis</button>
+    </div>
+</div>
+{% endblock %}

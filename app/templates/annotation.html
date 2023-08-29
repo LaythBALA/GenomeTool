@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Annotation Page Content -->
+<div class="annotation-page">
+    <!-- Annotation Space -->
+    <div class="annotation-space">
+        <h2>Annotation Space</h2>
+        <p>This is where you can annotate the selected genome.</p>
+        <!-- Add more content here as needed -->
+    </div>
+
+    <!-- Upload and Download Buttons -->
+    <div class="upload-download-options">
+        <div class="options-container">
+            <!-- Upload Button -->
+            <div class="upload">
+                <input type="file" id="upload-file" accept=".jpg, .jpeg, .png">
+                <button class="btn btn-primary">Upload</button>
+            </div>
+
+            <!-- Download Button -->
+            <div class="download">
+                <button class="btn btn-primary">Download</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
