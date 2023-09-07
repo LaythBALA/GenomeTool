@@ -152,9 +152,9 @@
 
 /* Annotation Page styles */
 .annotation-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
 }
 
 .annotation-space {
@@ -163,8 +163,8 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
-    width: 80%; /* Adjust the width as needed */
-    height: 72vh; /* Adjust the height as needed */
+    /* width: 80%; /* Adjust the width as needed */ */
+    /* height: 72vh; /* Adjust the height as needed */ */
 }
 
 .annotation-space h2 {
@@ -353,4 +353,8 @@
 .signup-form {
     margin-top: 2rem;
     width: 70%; /* Adjust the width as needed */
+}
+.comments{
+	height: 453px;
+    overflow-y: scroll;
 }

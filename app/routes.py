@@ -1,10 +1,31 @@
-from flask import render_template, redirect, url_for, flash, request
+from flask import render_template, redirect, url_for, flash, request,jsonify
 from flask_login import login_user, logout_user, current_user, login_required
 from app import app, db
 from app.models import User
+from app.models import Comment
 from werkzeug.security import generate_password_hash, check_password_hash
 import requests # pip install requests
 
+
+@app.route('/submit_comment', methods=['POST'])
+@login_required  # Ensure the user is authenticated to submit comments
+def submit_comment():
+    comment_text = request.form.get('comment')
+    position = request.form.get('position')
+    
+    if comment_text and position:
+        # Create a new comment and save it to the database
+        new_comment = Comment(user_id=current_user.id, comment=comment_text, position=position)
+        db.session.add(new_comment)
+        db.session.commit()
+        
+        # Return the newly created comment as a JSON response
+        return jsonify({'comment': {
+            'user': {'username': current_user.username},
+            'comment': comment_text
+        }})
+    
+    return jsonify({'error': 'Invalid data'}), 400
 # Registration Route
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -67,9 +88,34 @@ def home():
 def genome_browser():
     return render_template('genome_browser.html')
 
+#Annotation Routes
+
+def fetch_gene_info(gene_id):
+    api_url = f'https://rest.ensembl.org/lookup/id/{gene_id}?content-type=application/json'
+    response = requests.get(api_url)
+
+    if response.status_code == 200:
+        gene_info = response.json()
+        return gene_info
+    else:
+        print(f"API request failed with status code: {response.status_code}")
+        return None
+
 @app.route('/annotation')
-def annotation():
-    return render_template('annotation.html')
+@app.route('/annotation/<param_value>')
+def annotation(param_value=""):
+    # gene_id = request.args.get('gene_id')  # Get gene ID from query parameter
+    # gene_info = fetch_gene_info('gene_id')  # Replace with your method to get gene information
+    gene_info=param_value
+    comments = Comment.query.filter_by(position=gene_info).all()
+    
+    if gene_info:
+        # genome_map_url = f"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g={gene_id}"
+        genome_map_url = f"https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&position={gene_info}"
+    else:
+        genome_map_url = None
+
+    return render_template('annotation.html', gene_info=gene_info, genome_map_url=genome_map_url, comments=comments)
 
 @app.route('/analysis')
 def analysis():
@@ -88,6 +134,7 @@ def search_genome():
     
     if response.status_code == 200:
         data = response.json()
+        print(api_url)
         print(data)
         return render_template('genome_browser.html', search_results=data)
     else:

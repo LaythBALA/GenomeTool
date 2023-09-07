@@ -45,6 +45,9 @@
                 </tr>
             </tbody>
         </table>
+		<div class="col-sm-4 offset-4 text-center">
+			<a href="/annotation/{{search_results.seq_region_name}}:{{search_results.start}}-{{search_results.end}}" class="btn btn-info form-control">Annotation</a>
+		</div>
     </div>
     {% else %}
     <p>No search results found.</p>

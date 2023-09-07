@@ -35,3 +35,7 @@ def create_database(app):
 #     db.create_all()
 
 from app import routes
+from flask_migrate import Migrate
+
+# Create an instance of Flask-Migrate
+migrate = Migrate(app, db)

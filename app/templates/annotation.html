@@ -2,12 +2,58 @@
 
 {% block content %}
 <!-- Annotation Page Content -->
-<div class="annotation-page">
+<div class="annotation-page container">
     <!-- Annotation Space -->
-    <div class="annotation-space">
-        <h2>Annotation Space</h2>
-        <p>This is where you can annotate the selected genome.</p>
-        <!-- Add more content here as needed -->
+	<div class="annotation-space">
+		<div class="row">
+			<div class="col-sm-8">
+				<h2>Annotation Space</h2>
+				<p>This is where you can annotate the selected genome.</p>
+				
+				{% if gene_info %}
+				<iframe src="{{ genome_map_url }}" 
+					width="100%" height="600" frameborder="0" class="annotation-iframe"></iframe>
+				{% else %}
+				<p>No gene information available for annotation.</p>
+				{% endif %}
+			</div>
+			{% if gene_info %}
+			<div class="col-sm-4 ">
+				<h2>Comments</h2>
+				<div class="comments text-left">
+					
+					{% if comments %}
+					<ul class="list-unstyled">
+						{% for comment in comments %}
+							<li>
+								<div class="media">
+									<div class="media-body">
+										<h5 class="mt-0">{{ comment.user.username }}</h5>
+										{{ comment.comment }}
+									</div>
+								</div>
+							</li>
+						{% endfor %}
+					</ul>
+					{% else %}
+					<p>No comments found for this region.</p>
+					{% endif %}
+				</div>
+				<!-- Comment Form -->
+				{% if current_user.is_authenticated %}
+				<div class="comment-form">
+					<form id="comment-form" method="post" class="p-1">
+						<textarea id="comment-text" class="form-control " rows="4" cols="50" placeholder="Enter your comment" required></textarea>
+						<input type="hidden" value="{{ gene_info }}" id="position"> 
+						<button type="button" class="btn btn-info float-left mt-1" id="submit-comment">Submit</button>
+					</form>
+				</div>
+				{% else %}
+				<p>Want to post a comment ,You should first login at <a href="/login">here</a></p>
+				{% endif %}
+			</div>
+			{% endif %}
+		</div>
     </div>
 
     <!-- Upload and Download Buttons -->
@@ -15,7 +61,7 @@
         <div class="options-container">
             <!-- Upload Button -->
             <div class="upload">
-                <input type="file" id="upload-file" accept=".jpg, .jpeg, .png">
+                <input type="file" id="upload-file" accept=".html">
                 <button class="btn btn-primary">Upload</button>
             </div>
 
